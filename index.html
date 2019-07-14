@@ -1,232 +1,240 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Tema Javascript 1</title>
+<head>
+    <title>Tema Javascript 2</title>
     <script>
- /** 1. O functie care compara 2 valori si returneaza true daca sunt egale si false daca nu sunt egale
-*/
-function equal(a,b){
-    if (a === b){
+    /** 1. O functie care compara 2 valori si returneaza true daca sunt egale si false daca nu sunt egale
+    */
+        function returnNr(str){
+        var nr = "";
+        for (i = 0; i < str.length; i++){
+          if (!isNaN(parseInt(str[i]))){
+            nr = nr + str[i];
+          }
+        }
+        return nr;
+      }
+      console.log(returnNr("1a2b3c4d")); 
+        console.log(returnNr("12aa34bb56cc"));  
+        
+        /** 2. O functie care primeste un sir de caractere si returneaza doar literele din sirul respectiv
+       */
+      function returnLetters(str){
+        var letter = "";
+        for (i = 0; i < str.length; i++){
+          if (isNaN(parseInt(str[i]))){
+            letter += str[i];
+          }
+        }
+        return letter;
+      }
+      console.log(returnLetters("1a2b3c4d"));
+        console.log(returnLetters("12aa34bb56cc"));
+        
+         /** 3. O functie care primeste un sir de caractere si returneaza primele 5 litere(daca exista)
+       */
+      function firstFiveLetters(str){
+        var letters = "";
+        var i = 0;
+        while (letters.length < 5){
+          if (!str[i]){
+            break;
+          }
+          if (isNaN(parseInt(str[i]))){
+            letters += str[i];
+          }
+          i++;
+        }
+        return letters;
+      }
+      console.log(firstFiveLetters("abcdef12345"));
+        console.log(firstFiveLetters("12abcd345"));
+        
+        /** 4. O functie care primeste o lista de siruri de caractere si returneaza sirurile concatenate
+       */
+      function concatArr(arr){
+        var concat = "";
+        for (i = 0; i < arr.length; i++){
+          concat += arr[i];
+        }
+        return concat;
+      }
+      console.log(concatArr(["Bianca ", "Bidian"]));
+        console.log(concatArr(["Ce ", "mai ", "faci", ", ", "ce ", "mai ", "zici "]));
+        
+      /** 5. O functie care primeste o lista de siruri de caractere si returneaza cifrele din toate sirurile
+       */
+      function nrArr(arr){
+        var nr = "";
+        for (i = 0; i < arr.length; i++){
+          for (j = 0; j < arr[i].length; j++){
+            if (!isNaN(parseInt(arr[i][j]))){
+              nr += arr[i][j];
+            }
+          }
+        }
+        return nr;
+      }
+      console.log(nrArr(["12ab34cd", "56ef78gh"]));
+        console.log(nrArr(["bianca22", "septembrie95"]));
+        
+         /** 6. O functie care primeste o lista de siruri de caractere si returneaza lista de siruri de caractere inversate
+       */
+      function charReverse(arr){
+        var arrReverse = [];
+        for (i = 0; i < arr.length; i++){
+          var str = "";
+          for (j = arr[i].length - 1; j >= 0; j--){
+            str += arr[i][j];
+          }
+          arrReverse.push(str);
+        }
+        return arrReverse;
+      }
+      console.log(charReverse(["abcd", "efgh"]));
+        console.log(charReverse(["csf", "ncsf"]));
+        
+        /** 7. Calculeaza factorialul unui numar
+       */
+      function nrFactorial(n){
+        var f = 1;
+        for (i = 1; i <= n; i++){
+          f = f * i;
+        }
+        return f;
+      }
+      console.log(nrFactorial(3));
+        console.log(nrFactorial(5));
+        
+      /** 8. Calculeaza cel mai mare divizor comun al 2 numere
+       */
+      function cmmdc(a,b){
+        if (b < a){
+          var aux = a;
+          a = b;
+          b = aux;
+        }
+        for (var i = a; i > 0; i--) {
+          if (a % i === 0 && b % i === 0) {
+            return i;
+          }
+        }
+      }
+      console.log(cmmdc(20, 10));
+        console.log(cmmdc(5, 30));
+        
+        /** 9. Calculeaza cel mai mic multiplu comun al 2 numere
+       */
+      function cmmmc(a, b){
+        if (b < a){
+          var aux = a;
+          a = b;
+          b = aux;
+        }
+        for (var i = b; i>0; i++){
+          if (i % b === 0 && i % a === 0){
+            return i;
+          }
+        }
+      }
+      console.log(cmmmc(20, 10));
+        console.log(cmmmc(5, 30));
+        
+        /** 10.  Returneaza un array care sa contina toti divizorii unui numar (ex pentru 64: trebuie sa returneze [2,4,8,16,32])
+       */
+      function divNr(n){
+        var arr = [];
+        for (i = 2; i < n; i++){
+          if (n % i === 0){
+            arr.push(i);
+          }
+        }
+        return arr;
+      }
+      console.log(divNr(64));
+        console.log(divNr(128));
+        
+         /** 11. O functie care verifica daca un numar este palindrom (ex: 121, 1234321)
+       */
+      function palindromeNr(n){
+        n += "";
+        for (i = 0; i < n.length / 2; i++){
+          if (n[i] !== n[n.length - i - 1]){
+            return false;
+          }
+        }
         return true;
-    }else{
-        return false;
-    }
-}
-        console.log(equal(1,3));
-        console.log(equal(3,3));
-        console.log(equal(3,5));
+      }
+      console.log(palindromeNr(121));
+      console.log(palindromeNr(1234));
         
-/** 2. O functie care compara 2 valori si returneaza -1 daca primul e mai mic ca al doilea, 0 daca sunt egale si 1 daca primul e mai mare ca al doilea
-*/
-function compare(a,b){           
-    if(a<b){
-    return '-1';
-}else if(a===b){
-    return '0';
-}else if (a>b){
-    return '1';
-}
-}
-         console.log(compare(2,4));
-         console.log(compare(4,4));
-         console.log(compare(5,2));
-
-/** 3. O functie care primeste 2 valori si returneaza maximul dintre cele 2
-*/
-function maxim(a,b){
-    var max;
-    if (a>b){
-        max=a;
-    }else{
-        max=b;
-    }
-    return max;
-    }        
-        console.log(maxim(2,4));
-         console.log(maxim(4,7));
-         console.log(maxim(5,2));
-        console.log(maxim(13,13));
+         /** 12. O functie care sorteaza numerele pare dintr-un sir de numere primit ca parametru
+       */
+      function sortEvenNr(n){
+        n += "";
+        var even = [];
+        for (i = 0; i < n.length; i++){
+          if (parseInt(n[i]) % 2 === 0){
+            even.push(parseInt(n[i]));
+          }
+        }
+        even.sort(function(a, b){
+          return a - b;
+        });
+        return even;
+      }
+      console.log(sortEvenNr(123456789));
+          console.log(sortEvenNr(1011121314));
         
-/** 4. O functie care primeste 2 valori si returneaza minimul dintre cele 2
-*/   
-function minim(a,b){
-    var min;
-    if (a<b){
-        min=a;
-    }else{
-        min=b;
-    }
-    return min;
-    }
-         console.log(minim(2,4));
-         console.log(minim(4,7));
-         console.log(minim(5,2));
+        /** 13. O functie care primeste ca parametru un array de numere. Aceasta sorteaza ascendent numerele pare si descendent numerele impare, in cadrul aceluiasi array primit ca parameru
+       */
+        //prima data merge, a doua oara nu
+      function sortAscDesc(arr){
+        const evenArr = [];
+        const oddArr = [];
+        const result = [];
+        for (var i = 0; i < arr.length; i++){
+          if (arr[i] % 2 === 0){
+            evenArr.push(arr[i]);
+          }else{
+            oddArr.push(arr[i]);
+          }
+        }
+        evenArr.sort((a, b) => a - b);
+        oddArr.sort((a, b) => b - a);
+        return evenArr.concat(oddArr);
+      }
+      console.log(sortAscDesc([1, 20, 3, 40, 5, 60]));
+        console.log(sortAscDesc([10, 2, 30, 4, 50, 6]));
         
-/** 5. O functie care intoarce suma primelor N numere naturale pozitive
-*/
-function sum(n){
-    var s=0;
-    for(var i=1;i<=n;i++){
-        s+=i;
-    }
-    return s;
-}        
- console.log(sum(5));
-        
-/** 6. O functie care verifica daca N este numar prim (restul impartirii la 1 si la N ==0)
-*/        
-function prime(n){
-     if(n<2){
-        return false;
-}
-    for(var i=2;i<=n;i++){
-        if (n%i===0){
+        /** 14. O functie care primeste 2 parametri(un array si un numar). Folosind binary search verificati daca numarul primit ca parametru se gaseste in array
+       */
+      function binarySearchArrNr(arr, n){
+        var left = 0;
+        var right = arr.length - 1;
+        arr.sort(function(a, b){
+          return a - b;
+        }
+            );
+        while (left <= right){
+          var middle = parseInt((left + right) / 2);
+          if (arr[middle] < n){
+            left = middle + 1;
+          }else if (arr[middle] > n){
+            right = middle - 1;
+          }else{
             return true;
-        }else
-            return false;
+          }
         }
-}
-
-        console.log(prime(2));
-         console.log(prime(15));
-         console.log(prime(3));
-
-        
-/** 7. O functie care intoarce suma primelor N numere prime
-*/
-        //nu imi iese
- function isPrime(num){
-    if(num < 2) 
         return false;
-    for (var i = 2; i < num; i++) {
-        if(num%i==0)
-            return false;
-    }
-    return num;
-}
-    function sumPrime(num){
-        var sum = 0;
-        for (var i=2; i<num; i++){
-            sum+=num;
-        }
-        return sum;
-    }    
-        console.log(sumPrime(3));
-        console.log(sumPrime(5));
-        console.log(sumPrime(6));
+      }
+      console.log(binarySearchArrNr([1, 2, 3, 4, 5, 6], 6));
+      console.log(binarySearchArrNr([1, 2, 3, 4, 5, 6], 8)); 
         
-/** 8. O functie care primeste un parametru de tip string si intoarce inversul acestuia
-*/
-function reverseString(str) {
-    var newString = "";
-    for (var i = str.length - 1; i >= 0; i--) {
-        newString += str[i];
-    }
-    return newString;
-}
-        console.log(reverseString('hello'));
-        console.log(reverseString('cemaifaci'));
-        console.log(reverseString('binesieupeaici'));
-
-/** 9. O functie care intoarce produsul primelor N numere impare pozitive
-*/
-function odd(n){
-  return Boolean(n%2)
-}
-function multiplyOdd(n){
-var p = 1;
-for(var i=1; i<=n; i++){
-if (odd(i)){
-p*=i;
-}
-}
-return p;
-}
-console.log(multiplyOdd(5));
-console.log(multiplyOdd(4));
-console.log(multiplyOdd(7));
-        
-/** 10. O functie care primeste 2 parametri(arr - array de nr intregi si x - numar) si verifica daca x exista in array
-*/
-function numarInArray(arr, n){
-    for(var i=0; i<arr.length; i++){
-        if (arr[i] === n){
-	return true;
-   }
-}
-return false;
-}
-console.log(numarInArray([1, 2, 3, 4, 5], 3));
-console.log(numarInArray([1, 2, 3, 4, 5], 6));
-    
-/** 11. O functie care intoarce maximul dintr-un array primit ca parametru
-*/
-function maximArray(arr){
-	for(var i=0; i<arr.length; i++){
-	return Math.max.apply(null,arr);
-}
-}
-console.log(maximArray([1, 2, 3, 4, 5]));
-console.log(maximArray([11, 22, 33, 20, 10])); 
-
-/**12. O functie care intoarce suma dintre max si min, dintr-un array primit ca parametru
-*/
-function sumMaxMin(arr){
-	for(var i=0; i<arr.length; i++){
-	var max = Math.max.apply(null,arr);
-	var min = Math.min.apply(null,arr);
-	var sum = (max+min);
-	return sum;
-}
-}
-console.log(sumMaxMin([1, 2, 3, 4, 5]));
-console.log(sumMaxMin([11, 22, 33, 20, 10]));
-	
-/**13. O functie care verifica daca exista duplicate intr-un array primit ca parametru
-*/
-function duplicate(arr){
-	for(var i=0; i<arr.length; i++){
-	for(var j=0; j<arr.length; j++){
-		if(i!=j && arr[i] === arr[j]){
-		return true;
-	}
-}
-}
-return false;
-}
-console.log(duplicate([1, 2, 3, 2, 4]));
-console.log(duplicate([1, 2, 3, 4, 5]));
-
-/**14. O functie care intoarce produsul numerelor pozitive intr-un array primit ca parametru
-*/
-function multiplyNrArray(arr){
-	var p = 1;
-	for(var i=0; i<arr.length; i++){
-	p*=arr[i];
-}
-return p;
-}
-console.log(multiplyNrArray([1, 2, 3, 4, 5]));
-console.log(multiplyNrArray([10, 1, 2, 3, 4]));
-        
-/** 15. O functie care verifica daca un string primit ca parametru e palindrom
-*/
-function palindrome(str) {
- var len = str.length;
- for (var i = 0; i < len/2; i++) {
-   if (str[i] !== str[len - 1 - i]) {
-       return false;
-   }
- }
- return true;
-}
-    console.log(palindrome('neveroddoreven'));
-    console.log(palindrome('scrisrandom'));
-    console.log(palindrome('anutforajaroftuna')); 
-        
-        
-        </script>
+         /** 15. O functie care implementeaza binary search pentru a verifica daca un numar se regaseste intr-un array. Dupa ce se termina executia functiei trebuie sa puteti afisa de cate ori s-a apelat functia recursiv. (hint: puteti folosi 2 functii sau variabila globala)
+       */
+     // :( nu imi iese
+    </script>
     </head>
-<body></body>
-<p>nimic</p>
+    <body></body>
 </html>
