@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Agenda Telefonica</title>
+		<style>	
+            body{
+                background-color: #fef8e1;
+            }
+            legend{
+               font-weight: bold;
+                padding:10px 670px;
+                font-size: 30px;
+            }
+            #main, #result{
+                  background-color: #faca33;
+               
+                width:50%;
+                border-radius: 5px;
+                margin:0 auto;
+                padding: 40px;
+            }
+            #main > label{
+                padding-left: 100px;
+            }
+           input[type="submit"]{
+    background-color: darkblue;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px 300px;
+            }
+            .hidden{
+                display: none;
+            }
+            td{
+               padding: 0 80px;
+            }
+
+		</style>
+        <script>
+            var lista=[
+				];
+            var idxEditare =-1;
+            
+        function adauga(form,event){
+            event.preventDefault();
+            var obj = {
+            };
+            obj.nume = form.querySelector("[name='nume']").value;
+            obj.telefon = form.querySelector("[name='telefon']").value;
+            if(idxEditare===-1){
+           lista.push(obj);
+            }else{
+                lista[idxEditare]=obj;
+                idxEditare=-1;
+            }
+            draw();
+            form.reset();
+        }
+            function afiseazaTabel(){
+				document.querySelector("#result ").classList.remove("hidden");
+			}
+            function draw(){
+			var str = "";
+				for(var i=0;i<lista.length;i++){
+					str+=`<tr>
+						<td>${lista[i].nume}</td>
+						<td>${lista[i].telefon}</td>
+                        <td><a href="#" onclick ="editeaza(${i});">Modifica</a></td>
+                        <td><a href="#" onclick="sterge(${i});">Sterge</a></td>
+					</tr>`;
+                }
+				document.querySelector("#result tbody").innerHTML = str;
+            }
+            
+                function editeaza(idx){
+    window.idxEditare = idx;
+    var obj = lista[idx];
+    var form = document.querySelector("#addContact");
+    form.querySelector("[name='nume']").value = obj.nume;
+    form.querySelector("[name='telefon']").value = obj.telefon;
+}
+            
+            function sterge(idx){
+    if(confirm(`Are you sure you want to delete ${lista[idx].nume} ?`)){
+        lista.splice(idx,1);
+        draw();
+    }
+}
+    
+        </script>
+	</head>
+	<body onload="draw();">
+            <form id="addContact" onsubmit ="adauga(this,event);">
+        <legend>Agenda</legend>
+        <div id="main">
+		<label>Nume: </label><input type="text" name="nume"/>
+	<label>Telefon: </label><input type="text" name="telefon"/><br/>
+            <input type="submit" value="ADAUGA CONTACT" onclick="afiseazaTabel();"/>
+     </div> <br/>
+        <div id="result" class="hidden">
+            <table id="tabel">
+            <thead>
+				<tr>
+					<th>Nume</th>
+                    <th>Telefon</th>
+                    <th></th>
+                </tr>
+            </thead>
+            
+         <tbody></tbody>
+            </table>
+        </div>
+        </form>
+	</body>
+</html>
