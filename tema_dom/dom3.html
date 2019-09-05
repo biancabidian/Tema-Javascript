@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Tema DOM, exercitiu 3</title>
+<style>
+    label{
+    font-family: Lato;
+    }
+    input[type="text"]{
+        border-radius: 5px;
+    }
+    .corect{
+        background-color:greenyellow;
+    }
+    </style>
+    <script>
+        /** 3. Pastrati doar 3 inputuri si afisati in al 3-lea input valoarea inputului mai mare dintre primul si al doilea
+        */
+        function afiseazaMax(form,event){
+            event.preventDefault(); 
+
+        var firstNumber = document.querySelector("[name='nr1']");
+  var first=parseInt(firstNumber.value);
+var secondNumber = document.querySelector("[name='nr2']");
+  var second=parseInt(secondNumber.value);
+  if (first>second){
+    var result = first;
+  }else if (second>first){
+      var result = second;
+    }else{
+        result = first;
+      }
+  document.querySelector("[name='maxim']").value = result;
+  document.getElementById("result").innerHTML = result;
+        }
+    </script>
+</head>
+<body>
+<form onsubmit ="afiseazaMax(this,event)">
+        <fieldset>
+        <legend>Afiseaza maximul dintre cele doua inputuri</legend>
+  <label>Nr1 </label><input type="text" name="nr1" placeholder="Nr1"/><br/>
+	<label>Nr2 </label><input type="text" name="nr2" placeholder="Nr2"/><br/>
+<label>Maxim </label><input type="text" name="maxim" placeholder="Maxim" id="result"/><br/>
+<input type="submit" value="Maxim"/>
+    </fieldset>
+</form>
+</body>
+</html>

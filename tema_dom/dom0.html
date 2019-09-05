@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Tema DOM</title>
+<style>
+    label{
+    font-family: Lato;
+    }
+    input[type="text"]{
+        border-radius: 5px;
+    }
+    </style>
+    <script>
+    
+    
+    </script>
+</head>
+<body>
+<form onsubmit ="validate(this,event)">
+        <fieldset>
+        <legend>Order T-shirt</legend>
+  <label>Name </label><input type="text" name="name" placeholder="Name"/><br/>
+	<label>Surname </label><input type="text" name="surname" placeholder="Surname"/><br/>
+	<label>Email </label><input type="text" name="email" placeholder="Email"/><br/>
+	<label>Gender <br/>
+<input type="radio" name="gender" value="M"/>M <br/>
+<input type="radio" name="gender" value="F"/>F
+</label><br/>
+	<label>T-shirt color
+<select name="color">
+<option value="">Pick your T-shirt color</option>
+<option value="white">White</option>
+<option value="black">Black</option>
+<option value="pink">Pink</option>
+<option value="yellow">Yellow</option>
+<option value="green">Green</option>
+</select></label><br/>
+	<label>T-shirt size
+<select name="size">
+<option name="">Pick your T-shirt size</option>
+<option name="xs">XS</option>
+<option name="s">S</option>
+<option name="m">M</option>
+<option name="l">L</option>
+<option name="xl">XL</option>
+<option name="xxl">XXL</option>
+</select></label><br/>
+	<label>T-shirt quantity <br/>
+<input type="radio" name="quantity" value="1"/>1 
+<input type="radio" name="quantity" value="2"/>2 
+<input type="radio" name="quantity" value="3"/>3 
+<input type="radio" name="quantity" value="4"/>4 
+</label><br/>
+	<label>Payment method <br/>
+<input type="radio" name="payment" value="cash"/>Cash <br/>
+<input type="radio" name="payment" value="card"/>Credit/Debit card <br/>
+<input type="radio" name="payment" value="transfer"/>Bank transfer
+</label><br/><br/>
+	<label>Remember my choice<input type="checkbox" name="choice"/></label><br/>
+	<label>Terms & Conditions <input type="checkbox" name="terms"/></label><br/>
+	<label>Receive the invoice on email <input type="checkbox" name="invoice"/></label><br/>
+<input type="submit" value="Order"/>
+    </fieldset>
+</form>
+</body>
+</html>

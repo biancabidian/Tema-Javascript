@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Tema DOM, exercitiu 7</title>
+<style>
+    label{
+    font-family: Lato;
+    }
+    input[type="text"]{
+        border-radius: 5px;
+    }
+    .corect{
+        background-color:greenyellow;
+    }
+    
+    </style>
+    <script>
+        /** 7.Pastrati doar 1 input si folosind event.preventDefault pe evenimentul onkeypress, opriti utilizatorul sa mai introduca orice altceva decat numere. (tip: puteti sa gasiti caracterul tastat in event.key)
+        */
+    function justNumbers(form,event){ 
+        var text = document.querySelector("[name='text']").value;
+  var n =event.key;
+ if(isNaN(n)){
+    form.value += n.toString();
+     event.preventDefault();
+ }
+  }
+    
+    </script>
+</head>
+<body>
+<form onkeypress="justNumbers(this,event)">
+        <fieldset>
+        <legend>Only Numbers</legend>
+  <label>Text </label><input type="text" name="text" placeholder="Numbers Only"/><br/>
+    </fieldset>
+</form>
+</body>
+</html>

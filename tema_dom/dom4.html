@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Tema DOM, exercitiu 4</title>
+<style>
+    label{
+    font-family: Lato;
+    }
+    input[type="text"]{
+        border-radius: 5px;
+    }
+    .corect{
+        background-color:greenyellow;
+    }
+    </style>
+    <script>
+        /** 4. Pastrati doar 3 inputuri si afisati in al 3-lea input suma primului + celui de-al 2-lea input 
+        */
+        
+        function suma(form,event{
+            event.preventDefault(); 
+            var firstNumber = document.querySelector("[name='nr1']");
+  var first=parseInt(firstNumber.value);
+  var secondNumber = document.querySelector("[name='nr2']");
+  var second=parseInt(secondNumber.value);
+  var result = first + second;
+  document.querySelector("[name='suma']").value = result;
+  document.getElementById("result").innerHTML = result;
+        }
+    </script>
+</head>
+<body>
+<form onsubmit ="suma(this,event)">
+        <fieldset>
+        <legend>Suma inputuri</legend>
+  <label>Nr </label><input type="text" name="nr1"/><br/>
+	<label>Nr </label><input type="text" name="nr2"/><br/>
+<label>Suma </label><input type="text" name="suma" id="result"/><br/>
+<input type="submit" value="Suma"/>
+    </fieldset>
+</form>
+</body>
+</html>

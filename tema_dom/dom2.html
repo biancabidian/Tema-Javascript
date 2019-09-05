@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Tema DOM, exercitiu 2</title>
+<style>
+    label{
+    font-family: Lato;
+    }
+    input[type="text"]{
+        border-radius: 5px;
+    }
+    .corect{
+        background-color:greenyellow;
+    }
+    </style>
+    <script>
+        /** 2. Pastrati doar 2 inputuri si colorati inputul care are valoarea mai mare. Daca sunt egale, colorati-le pe ambele
+        */
+        function checkMax(form,event){
+            event.preventDefault(); 
+    document.querySelector("[name='nr1']").value;
+            var name = document.querySelector("[name='nr1']").value;
+    document.querySelector("[name='nr2']").value;
+            var surname = document.querySelector("[name='nr2']").value;
+            
+            if(name > surname){
+                document.querySelector("[name='nr1']").classList.add("corect");
+            }else if(name < surname){
+                document.querySelector("[name='nr2']").classList.add("corect");
+        }else{
+             document.querySelector("[name='nr1']").classList.add("corect");
+                document.querySelector("[name='nr2']").classList.add("corect");
+        }
+            }
+    </script>
+</head>
+<body>
+<form onsubmit ="checkMax(this,event)">
+        <fieldset>
+        <legend>Care numar este mai mare?</legend>
+  <label>Numar </label><input type="text" name="nr1" /><br/>
+	<label>Numar </label><input type="text" name="nr2" /><br/>
+
+<input type="submit" value="Verifica"/>
+    </fieldset>
+</form>
+</body>
+</html>

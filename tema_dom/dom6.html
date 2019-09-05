@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Tema DOM, exercitiu 6</title>
+<style>
+    label{
+    font-family: Lato;
+    }
+    input[type="text"]{
+        border-radius: 5px;
+    }
+    .corect{
+        background-color:greenyellow;
+    }
+    div{
+        text-align: right;
+    }
+    .alert{
+        color:red;
+    }
+    
+    </style>
+    <script>
+        /** 6.Plecand de la ex 5, limitati numarul de caractere la 10. In momentul in care am ajuns la 10, inrositi counterul si folosind event.preventDefault() pe evenimentul onkeypress opriti utilizatorul sa mai introduca caractere in plus
+        */
+        function lengthArray(form,event){ 
+        var text = document.querySelector("[name='text']").value;
+  var counter =1;
+  for(var i=0; i<text.length;i++){
+    counter=counter+1;
+  }
+  document.querySelector("[name='count']").innerHTML = counter + " characters ";
+}   
+    function lengthLimit(form,event){ 
+        lengthArray(form,event);
+        var text = document.querySelector("[name='text']").value;
+        if(text.length>=9){
+document.querySelector("#counter").classList.add("alert");
+            event.preventDefault();
+           }
+    }
+  
+    </script>
+</head>
+<body>
+<form onkeypress="lengthLimit(this,event)">
+        <fieldset>
+        <legend>Count of length</legend>
+  <label>Text </label><input type="text" name="text" placeholder="Text"/><br/>
+<div name="count" id="counter"></div>
+    </fieldset>
+</form>
+</body>
+</html>

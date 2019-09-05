@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Tema DOM, exercitiu 1</title>
+<style>
+    label{
+    font-family: Lato;
+    }
+    input[type="text"]{
+        border-radius: 5px;
+    }
+    .corect{
+        background-color:greenyellow;
+    }
+    </style>
+    <script>
+        /** 1. Pastrati doar 2 inputuri si colorati ambele inputuri verzi daca valoarea din casuta 1 si din casuta 2 sunt egale 
+        */
+        function checkEgalitate(form,event){
+            event.preventDefault(); 
+    document.querySelector("[name='name']").value;
+        var nameInput = document.querySelector("[name='name']");
+        var name = nameInput.value;
+            document.querySelector("[name='surname']").value;
+        var surnameInput = document.querySelector("[name='surname']");
+        var surname = surnameInput.value;
+            
+            if(name === surname){
+         document.querySelector("[name='name']").classList.add("corect");
+            
+                document.querySelector("[name='surname']").classList.add("corect");
+            }
+        }
+    </script>
+</head>
+<body>
+<form onsubmit ="checkEgalitate(this,event)">
+        <fieldset>
+        <legend>Egalitatea numerelor</legend>
+  <label>Name </label><input type="text" name="name" placeholder="Name"/><br/>
+	<label>Surname </label><input type="text" name="surname" placeholder="Surname"/><br/>
+
+<input type="submit" value="Verifica"/>
+    </fieldset>
+</form>
+</body>
+</html>

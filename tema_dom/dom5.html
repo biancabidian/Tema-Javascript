@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Tema DOM, exercitiu 5</title>
+<style>
+    label{
+    font-family: Lato;
+    }
+    input[type="text"]{
+        border-radius: 5px;
+    }
+    .corect{
+        background-color:greenyellow;
+    }
+    div{
+        text-align: right;
+    }
+    </style>
+    <script>
+        /** 5.Pastrati doar 1 input si afisati intr-un span/div in coltul dreapta jos, lungimea sirului de caractere tastat.
+        */
+    function lengthArray(form,event){ 
+        var text = document.querySelector("[name='text']").value;
+  var counter =1;
+  for(var i=0; i<text.length;i++){
+    counter=counter+1;
+  }
+  document.querySelector("[name='count']").innerHTML = counter + " characters ";
+}   
+    </script>
+</head>
+<body>
+<form oninput="lengthArray(this,event)">
+        <fieldset>
+        <legend>Count of length</legend>
+  <label>Text </label><input type="text" name="text" placeholder="Text"/><br/>
+<div name="count"></div>
+    </fieldset>
+</form>
+</body>
+</html>
