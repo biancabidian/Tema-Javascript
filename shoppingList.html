@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Shopping list</title>
+		<style>
+			body{
+				background-color:#d0bcfd;
+			}
+			 input[type="submit"],input[type="button"]{
+				border-radius:5px;
+				padding:10px;
+				margin:5px;
+			}
+			input[type="submit"]{
+				background-color:#73f395;
+                font-size: 14px;
+			}
+			input[type="button"]{
+				background-color:#e19bfc;
+                font-size: 10px;
+			}
+			input[type="button"].mark{
+				background-color:#f29596;
+                font-size: 10px;
+			}
+            .list{
+                text-align:center;
+				background-color:#ffffff;
+				width:700px;
+				position:relative;
+				left:25%;
+				border-radius:5px;
+            }
+            thead{
+				font-weight:bold;
+			}
+            .hidden{
+                display:none;
+            }
+            #tabel, #addItem{
+               position:relative;
+                width:100%;
+                margin:20px;
+                border-collapse:collapse;
+                border-radius:15px;
+            }
+			h1{
+				margin:0 auto;
+			}
+            .strike{
+				text-decoration:line-through;
+            }
+		</style>
+		<script>
+            var lista=[
+			];
+			function draw(){
+				var str = "";
+				for(var i=0;i<lista.length;i++){
+				str+=`<tr>
+						<td id="${i}" class="${lista[i].marked?"strike":""}">${lista[i].item}</td>
+						<td><input type="button" class="mark" value="Mark as buyed" onclick="marcheaza(${i});"</td>
+					</tr>`;
+				}
+				document.querySelector("#tabel tbody").innerHTML = str;
+			}
+            
+			function adauga(form,event){
+				event.preventDefault();
+				var obj = {
+				};
+				obj.item = form.querySelector("[name='item']").value;
+				lista.push(obj); 
+				draw();
+				document.querySelector("#tabel").classList.remove("hidden");
+				document.querySelector("#addItem").reset();
+			}
+
+		function sortAsc(){
+			lista.sort(function(a,b){
+					if(a.item>b.item){
+						return 1;
+					} else if(a.item<b.item){
+						return -1;
+					} else{
+						return 0;
+					}
+				});
+				draw();
+		}
+
+		function sortDesc(){
+			lista.sort(function(a,b){
+					if(a.item<b.item){
+						return 1;
+					} else if(a.item>b.item){
+						return -1;
+					} else{
+						return 0;
+					}
+				});
+				draw();
+		}
+		/*function markItem(idx){
+			window.indexMark = idx;
+			var obj = lista[idx];
+			var str="";
+			str=str+obj.item;
+			var result= str.strike();
+			lista.push(obj); 
+         document.querySelector("#tabel").rows[idx+1].cells.item(0).innerHTML =result;
+			indexMark = 0;
+		}*/
+            function marcheaza(idx){
+        lista[idx].marked = 1;
+               
+        draw();
+}
+		</script>
+	</head>
+	<body>
+        <div class="list">
+	   <h1>SHOPPING LIST</h1>
+	   <form id="addItem" onsubmit="adauga(this,event);">
+		<input type="text" name="item" > 
+            <input type="submit" value ="Add item"><br/>
+			<input type="button" value="Sort Asc" onclick="sortAsc();" >
+           <input  type="button" value="Sort Desc" onclick="sortDesc();">
+            </form>
+	   <table id="tabel" class="hidden">
+		   <thead>
+			   <tr>
+				   <td>Item description</td>
+				   <td>Action</td>
+			   </tr>
+		   </thead>
+		   <tbody></tbody>
+	   </table>
+	</div>
+	</body>
+</html>
