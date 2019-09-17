@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<head>
+		<link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/javascript" src="script.js"></script>
+</head>
+<body>
+	<div id="listaElevi">
+	<h1>Lista Elevi</h1>
+	<form id="elev" onsubmit="adaugaElev(event)">
+		Nume:
+		<input type="text" name="nume"/>
+		<input type="submit" value="Adauga Elev"/>
+	</form>
+	
+	<table id="tableElevi">
+		<thead>
+			<tr><th><input type="button" value="Sorteaza ascendent dupa medie" onclick="sortAscMedie(event);"></th></tr>
+			<tr><th><input type="button" value="Sorteaza descendent dupa medie" onclick="sortDescMedie(event);"></th></tr>
+			<tr><th>Niciun elev nu a fost adaugat.</th></tr>
+			
+		</thead>
+		<tbody>
+			
+		</tbody>
+	</table>
+</div>
+<div id="noteElev" class="hidden">
+		<input type="button" value="Ascunde notele" onclick="ascundeNotele();" style="background-color:#0e5c73; width: 100px;"><br>
+	<h1 id="numeElev"></h1>
+	<form id="nota" onsubmit="adaugaNota(event)">
+			
+		Nota:
+		<input type="text" name="nota"/>
+		<input type="submit" value="Adauga Nota"/>
+	</form>
+	<table id="tableNote">
+		<thead>
+			<tr>
+				<th>Note</th>
+				<tr><th><input type="button" value="Sorteaza ascendent dupa note" onclick="sortAscNote(event);"></th></tr>
+			<tr><th><input type="button" value="Sorteaza descendent dupa note"  onclick="sortDescNote(event);"></th></tr>
+			</tr>
+		</thead>
+		<tbody>
+			
+		</tbody>
+	</table>
+</div>
+</body>
+</html>
