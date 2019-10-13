@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Edit content</title>
+    <script>
+          var list = [];
+        async function edit(){
+            var i= window.location.search.substring(4);
+            event.preventDefault();
+            var response = await fetch(`https://webshop-bianca.firebaseio.com/products.json`);
+            list = await response.json();
+        
+                document.querySelector("[name='name']").value=list[i].name;
+                document.querySelector("[name='image']").value=list[i].image;
+                document.querySelector("[name='stock']").value=list[i].stock;
+                document.querySelector("[name='price']").value=list[i].price;
+                document.querySelector("[name='description']").value=list[i].description;
+                
+             
+        }
+        async function addProduct(event) {
+            
+            event.preventDefault();
+            var i= window.location.search.substring(4);
+            var obj = {
+                name: document.querySelector("[name='name']").value,
+                image: document.querySelector("[name='image']").value,
+                stock: document.querySelector("[name='stock']").value,
+                price: document.querySelector("[name='price']").value,
+                description: document.querySelector("[name='description']").value
+            }
+					list[i] = obj;
+				
+					var response = await fetch(`https://webshop-bianca.firebaseio.com/products/${i}.json`,{
+						method:"put",
+						body:JSON.stringify(obj)
+					});
+           
+        location.href = "admin.html";
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Indie+Flower|Roboto&display=swap');
+            html, body {
+              font-family: Roboto;
+            }
+            #container {
+                width: 60%;
+                margin: 0 auto;
+                padding: 30px;
+                border:1px solid green;
+            }
+            .container-grid {
+              padding: 100px;
+            }
+              #container{
+                  width:60%;
+                  margin: 0px auto;
+              }
+              input, textarea{
+                  width: 400px;
+              }
+            
+            table{
+              width: 100%;
+              
+            }
+            td{
+                height: 30px;
+                text-align: left;
+                   }
+         
+            .addProduct {
+              background-color: #6796f9;
+              color: white;
+              float: right;
+              padding: 10px;
+              border-radius: 7px;
+              margin: 30px 40px 0px 0px;
+            }
+      
+            span {
+              font-family: Roboto;
+              font-size: 40px;
+              margin: 30px 0px 0px 20px;
+              position: absolute;
+              color: green;
+             
+            }
+        button{
+            display: flex;
+            flex-direction: row-reverse;
+            
+        }
+          
+          </style>
+  </head>
+  <body onload = "edit()">
+        <div id="container">
+                <span>Edit Product - Admin</span>
+          
+                <div class="container-grid" id="form">
+                  <form onsubmit="addProduct(event)" action="">
+                    <table>
+                        <tr>
+                            <td><label for="">Name</label></td>
+                            <td><input type="text" name="name"/></td>
+                        </tr>
+                        <tr>
+                            <td><label for="">Image URL</label></td>
+                            <td><input type="text" name="image"/></td>
+                        </tr>
+                        <tr>
+                            <td><label for="">Stock</label></td>
+                            <td><input type="number" name="stock"/></td>
+                        </tr>
+                        <tr>
+                            <td><label for="">Price</label></td>
+                            <td><input type="number" name="price"/></td>
+                        </tr>
+                        <tr>
+                            <td><label for="">Properties</label></td>
+                            <td><textarea name="description"></textarea></td>
+                        </tr>
+                        <tr>
+                            <td>   <button type="submit" class="submitButton">SAVE</button></td>
+                        </tr>
+                
+                  </table>
+                  </form>
+                     <div class="adminHome">
+        <a href="/Users/Bibisoor/Desktop/scoala informala/teme/proiect final/b/admin/admin.html">CANCEL</a>
+      </div>
+                </div>
+              </div>
+  </body>
+</html>

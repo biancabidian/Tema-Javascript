@@ -1,0 +1,78 @@
+{
+  "products" : [ {
+    "description" : "Properties: antiseptic, hidratant, exfoliant",
+    "image" : "/Users/Bibisoor/Desktop/scoala informala/teme/proiect final/b/home/pics/cuisoare_si_ceai_negru_-_sapun_natural_savonia_2.jpg",
+    "name" : "Sapun Natural Cuisoare si Ceai Negru",
+    "price" : 8,
+    "stock" : 10
+  }, {
+    "description" : "Properties: anti-imbatranire, regenerare, calmant",
+    "image" : "/Users/Bibisoor/Desktop/scoala informala/teme/proiect final/b/home/pics/castravete_si_vitamina_c_-_sapun_natural_savonia_2.jpg",
+    "name" : "Sapun Natural Castravete si Vitamina C",
+    "price" : 6,
+    "stock" : 12
+  }, {
+    "description" : "Properties: revigorant antiinflamator, tonifiant",
+    "image" : "/Users/Bibisoor/Desktop/scoala informala/teme/proiect final/b/home/pics/lamaita_si_portocala_-_sapun_nautral_savonia_2.jpg",
+    "name" : "Sapun Natural Lamaita si Portocala",
+    "price" : 7,
+    "stock" : 9
+  }, {
+    "description" : "Properties: regenerator, calmant",
+    "image" : "/Users/Bibisoor/Desktop/scoala informala/teme/proiect final/b/home/pics/laptisor_de_matca_si_musetel_-_sapun_natural_savonia_2.jpg",
+    "name" : "Sapun Natural Musetel si Laptisor de Matca",
+    "price" : 10,
+    "stock" : 15
+  }, {
+    "description" : "Properties: tonifiant, purificator",
+    "image" : "/Users/Bibisoor/Desktop/scoala informala/teme/proiect final/b/home/pics/menta_si_argila_verde_-_sapun_natural_savonia_2.jpg",
+    "name" : "Sapun Natural Menta si Argila Verde",
+    "price" : 8,
+    "stock" : 10
+  }, {
+    "description" : "Properties: revigorant antiinflamator, tonifiant",
+    "image" : "/Users/Bibisoor/Desktop/scoala informala/teme/proiect final/b/home/pics/miere_si_galbenele_-_sapun_natural_savonia_2.jpg",
+    "name" : "Sapun Natural Miere si Galbenele",
+    "price" : 5,
+    "stock" : 10
+  }, {
+    "description" : "Properties: antibacterian,antioxidant, tonic",
+    "image" : "/Users/Bibisoor/Desktop/scoala informala/teme/proiect final/b/home/pics/scortisoara_si_cacao_-_sapun_natural_savonia_2.jpg",
+    "name" : "Sapun Natural Scortisoara si Cacao",
+    "price" : 9,
+    "stock" : 10
+  }, {
+    "description" : "Properties: exfoliant, anticelulitic, antioxidant",
+    "image" : "/Users/Bibisoor/Desktop/scoala informala/teme/proiect final/b/home/pics/cafea_si_eucalipt_-_sapun_natural_savonia_2.jpg",
+    "name" : "Sapun Natural Cafea si Eucalipt",
+    "price" : 10,
+    "stock" : 9
+  }, {
+    "description" : "Properties: emolient, antibacterian, hidratant, protector",
+    "image" : "/Users/Bibisoor/Desktop/scoala informala/teme/proiect final/b/home/pics/propolis_si_hibiscus_-_sapun_natural_savonia_2.jpg",
+    "name" : "Sapun Natural Propolis si Hibiscus",
+    "price" : 11,
+    "stock" : 15
+  }, {
+    "description" : "Properties: detoxifiant, antiacneic",
+    "image" : "/Users/Bibisoor/Desktop/scoala informala/teme/proiect final/b/home/pics/carbune_si_arbore_de_ceai_-_sapun_natural_savonia_2.jpg",
+    "name" : "Sapun Natural Carbune si Arbore de Ceai",
+    "price" : 9,
+    "stock" : 12
+  }, {
+    "description" : "Properties: catifelant, emollient, hidratant ",
+    "image" : "/Users/Bibisoor/Desktop/scoala informala/teme/proiect final/b/home/pics/mango_si_argan_-_sapun_natural_savonia_2.jpg",
+    "name" : "Sapun Natural Mango si Argan",
+    "price" : 12,
+    "stock" : 5
+  }, {
+    "description" : "Properties: calmarea pielii iritate, hidratant ",
+    "image" : "/Users/Bibisoor/Desktop/scoala informala/teme/proiect final/b/home/pics/anason_si_fenicul_-_sapun_natural_savonia_2.jpg",
+    "name" : "Sapun Natural Anason si Fenicul",
+    "price" : 6,
+    "stock" : 6
+  } ],
+    "cart" :[]
+}
+    
+

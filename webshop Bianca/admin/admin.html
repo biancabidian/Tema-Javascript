@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Admin</title>
+    <link rel="stylesheet" href="admin1.css" />
+    <script src="admin1.js"></script>
+  </head>
+  <body onload="draw();">
+    <div class="main">
+      <div class="home">
+        <a href="/Users/Bibisoor/Desktop/scoala informala/teme/proiect final/b/home/index.html"> <h3>HOME PAGE</h3></a>
+      </div>
+      <h1>ADMIN</h1>
+
+      <form id="addForm" onsubmit="addProduct(event);" action="">
+        <table>
+          <tr>
+            <td>
+              Name
+            </td>
+            <td>
+              <input type="text" name="name" />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Price
+            </td>
+            <td>
+              <input type="number" name="price" />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Image URL
+            </td>
+            <td>
+              <input type="text" name="image" />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Stock
+            </td>
+            <td>
+              <input type="number" name="stock" />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Properties
+            </td>
+            <td>
+              <input type="text" name="description" />
+            </td>
+          </tr>
+        </table>
+        <div class="submitButton">
+          <button type="submit">ADD PRODUCT</button>
+        </div>
+      </form>
+      <div class="productTable">
+        <table>
+          <thead>
+            <th>Name</th>
+            <th>Stock</th>
+            <th>Price</th>
+          </thead>
+          <tbody id="showProducts"></tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>
